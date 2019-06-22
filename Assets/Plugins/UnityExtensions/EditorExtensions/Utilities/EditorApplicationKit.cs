@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -28,6 +29,22 @@ namespace UnityExtensions.Editor
         public static float deltaTime
         {
             get { return _deltaTime; }
+        }
+
+
+        /// <summary>
+        /// 打开指定路径的文件夹（可以使用文件路径，可以使用相对路径）
+        /// </summary>
+        public static void OpenFolder(string path)
+        {
+#if UNITY_EDITOR_WIN
+            path = path.Replace('/', '\\');
+
+            while (!Directory.Exists(path))
+                path = path.Substring(0, path.LastIndexOf('\\'));
+
+            System.Diagnostics.Process.Start("explorer.exe", path);
+#endif
         }
 
     } // struct EditorApplicationKit

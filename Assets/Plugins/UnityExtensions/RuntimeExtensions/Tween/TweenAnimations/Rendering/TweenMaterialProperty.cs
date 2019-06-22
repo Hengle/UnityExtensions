@@ -102,13 +102,13 @@ namespace UnityExtensions
 
         public bool IsMaterialSelected(int materialIndex)
         {
-            return BitwiseKit.GetBit(_materialMask, materialIndex);
+            return _materialMask.GetBit(materialIndex);
         }
 
 
         public void SetMaterialSelected(int materialIndex, bool selected)
         {
-            _materialMask = BitwiseKit.SetBit(_materialMask, materialIndex, selected);
+            _materialMask.SetBit(materialIndex, selected);
         }
 
 

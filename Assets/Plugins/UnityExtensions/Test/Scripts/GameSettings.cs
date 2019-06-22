@@ -25,7 +25,13 @@ namespace UnityExtensions.Test
         public Interpolator interpolator;
         public CustomizableInterpolator interpolator2;
 
+        [Line, Header("UI Settings")]
+        [IndentBefore]
         public Color enabledUIColor;
+
+        public int indentedScope;
+
+        [IndentAfter]
         public Color disabledUIColor;
 
 

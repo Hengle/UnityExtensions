@@ -168,6 +168,9 @@ namespace UnityExtensions
             protected virtual void OnEnable()
             {
                 _interpolatorProp = serializedObject.FindProperty("_interpolator");
+
+                // hide on prefab
+                target.hideFlags |= HideFlags.HideInHierarchy | HideFlags.HideInInspector;
             }
 
 

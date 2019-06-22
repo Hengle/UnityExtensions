@@ -13,7 +13,7 @@ namespace UnityExtensions
     }
 
 
-    [Flags]
+    [System.Flags]
     public enum ArrivedAction
     {
         KeepPlaying = 0,
@@ -134,6 +134,20 @@ namespace UnityExtensions
         /// </summary>
         public void SetDirectionBack()
         {
+            direction = PlayDirection.Back;
+        }
+
+
+        public void ForwardEnable()
+        {
+            enabled = true;
+            direction = PlayDirection.Forward;
+        }
+
+
+        public void BackEnable()
+        {
+            enabled = true;
             direction = PlayDirection.Back;
         }
 

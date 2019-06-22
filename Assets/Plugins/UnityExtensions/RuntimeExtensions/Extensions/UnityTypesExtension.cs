@@ -81,6 +81,149 @@ namespace UnityExtensions
 
 
         /// <summary>
+        /// 设置 localPosition.x
+        /// </summary>
+        public static void SetLocalPositionX(this Transform transform, float x)
+        {
+            var pos = transform.localPosition;
+            pos.x = x;
+            transform.localPosition = pos;
+        }
+
+
+        /// <summary>
+        /// 设置 localPosition.y
+        /// </summary>
+        public static void SetLocalPositionY(this Transform transform, float y)
+        {
+            var pos = transform.localPosition;
+            pos.y = y;
+            transform.localPosition = pos;
+        }
+
+
+        /// <summary>
+        /// 设置 localPosition.z
+        /// </summary>
+        public static void SetLocalPositionZ(this Transform transform, float z)
+        {
+            var pos = transform.localPosition;
+            pos.z = z;
+            transform.localPosition = pos;
+        }
+
+
+        /// <summary>
+        /// 设置 anchoredPosition.x
+        /// </summary>
+        public static void SetAnchoredPositionX(this RectTransform rectTransform, float x)
+        {
+            var pos = rectTransform.anchoredPosition;
+            pos.x = x;
+            rectTransform.anchoredPosition = pos;
+        }
+
+
+        /// <summary>
+        /// 设置 anchoredPosition.y
+        /// </summary>
+        public static void SetAnchoredPositionY(this RectTransform rectTransform, float y)
+        {
+            var pos = rectTransform.anchoredPosition;
+            pos.y = y;
+            rectTransform.anchoredPosition = pos;
+        }
+
+
+        /// <summary>
+        /// 设置 sizeDelta.x
+        /// </summary>
+        public static void SetSizeDeltaX(this RectTransform rectTransform, float x)
+        {
+            var size = rectTransform.sizeDelta;
+            size.x = x;
+            rectTransform.sizeDelta = size;
+        }
+
+
+        /// <summary>
+        /// 设置 sizeDelta.y
+        /// </summary>
+        public static void SetSizeDeltaY(this RectTransform rectTransform, float y)
+        {
+            var size = rectTransform.sizeDelta;
+            size.y = y;
+            rectTransform.sizeDelta = size;
+        }
+
+
+        /// <summary>
+        /// 设置 anchorMin.x
+        /// </summary>
+        public static void SetAnchorMinX(this RectTransform rectTransform, float x)
+        {
+            var anchorMin = rectTransform.anchorMin;
+            anchorMin.x = x;
+            rectTransform.anchorMin = anchorMin;
+        }
+
+
+        /// <summary>
+        /// 设置 anchorMin.y
+        /// </summary>
+        public static void SetAnchorMinY(this RectTransform rectTransform, float y)
+        {
+            var anchorMin = rectTransform.anchorMin;
+            anchorMin.y = y;
+            rectTransform.anchorMin = anchorMin;
+        }
+
+
+        /// <summary>
+        /// 设置 anchorMax.x
+        /// </summary>
+        public static void SetAnchorMaxX(this RectTransform rectTransform, float x)
+        {
+            var anchorMax = rectTransform.anchorMax;
+            anchorMax.x = x;
+            rectTransform.anchorMax = anchorMax;
+        }
+
+
+        /// <summary>
+        /// 设置 anchorMax.y
+        /// </summary>
+        public static void SetAnchorMaxY(this RectTransform rectTransform, float y)
+        {
+            var anchorMax = rectTransform.anchorMax;
+            anchorMax.y = y;
+            rectTransform.anchorMax = anchorMax;
+        }
+
+
+        /// <summary>
+        /// 设置 pivot.x
+        /// </summary>
+        public static void SetPivotX(this RectTransform rectTransform, float x)
+        {
+            var pivot = rectTransform.pivot;
+            pivot.x = x;
+            rectTransform.pivot = pivot;
+        }
+
+
+        /// <summary>
+        /// 设置 pivot.y
+        /// </summary>
+        public static void SetPivotY(this RectTransform rectTransform, float y)
+        {
+            var pivot = rectTransform.pivot;
+            pivot.y = y;
+            rectTransform.pivot = pivot;
+        }
+
+
+        /// <summary>
         /// 遍历 Transform 层级（根节点优先）, 对每一个节点执行一个自定义的操作
         /// </summary>
         /// <param name="root"> 遍历开始的根部 Transform 对象 </param>
@@ -220,6 +363,46 @@ namespace UnityExtensions
             newGradient.mode = target.mode;
 
             return newGradient;
+        }
+
+
+        public static PlatformMask ToFlag(this RuntimePlatform platform)
+        {
+            switch (platform)
+            {
+                case RuntimePlatform.WindowsEditor: return PlatformMask.WindowsEditor;
+                case RuntimePlatform.WindowsPlayer: return PlatformMask.WindowsPlayer;
+
+                case RuntimePlatform.OSXEditor: return PlatformMask.OSXEditor;
+                case RuntimePlatform.OSXPlayer: return PlatformMask.OSXPlayer;
+
+                case RuntimePlatform.LinuxEditor: return PlatformMask.LinuxEditor;
+                case RuntimePlatform.LinuxPlayer: return PlatformMask.LinuxPlayer;
+
+                case RuntimePlatform.Android: return PlatformMask.Android;
+                case RuntimePlatform.IPhonePlayer: return PlatformMask.IPhonePlayer;
+
+                case RuntimePlatform.PS4: return PlatformMask.PS4;
+                case RuntimePlatform.XboxOne: return PlatformMask.XboxOne;
+                case RuntimePlatform.Switch: return PlatformMask.Switch;
+
+                case RuntimePlatform.WebGLPlayer: return PlatformMask.WebGLPlayer;
+
+                case RuntimePlatform.WSAPlayerX86: return PlatformMask.WSAPlayerX86;
+                case RuntimePlatform.WSAPlayerX64: return PlatformMask.WSAPlayerX64;
+                case RuntimePlatform.WSAPlayerARM: return PlatformMask.WSAPlayerARM;
+
+                case RuntimePlatform.tvOS: return PlatformMask.tvOS;
+                case RuntimePlatform.Lumin: return PlatformMask.Lumin;
+
+                default: return PlatformMask.None;
+            }
+        }
+
+
+        public static bool Contains(this PlatformMask mask, RuntimePlatform platform)
+        {
+            return (mask & platform.ToFlag()) != 0;
         }
 
 

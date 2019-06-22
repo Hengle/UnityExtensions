@@ -50,6 +50,91 @@ namespace UnityExtensions
         public static Random random = Random.Create();
 
 
+        public static Vector3 Add(Vector3 a, float b)
+        {
+            a.x += b;
+            a.y += b;
+            a.z += b;
+            return a;
+        }
+
+
+        public static Vector3 Sub(Vector3 a, float b)
+        {
+            a.x -= b;
+            a.y -= b;
+            a.z -= b;
+            return a;
+        }
+
+
+        public static Vector2 Add(Vector2 a, float b)
+        {
+            a.x += b;
+            a.y += b;
+            return a;
+        }
+
+
+        public static Vector2 Sub(Vector2 a, float b)
+        {
+            a.x -= b;
+            a.y -= b;
+            return a;
+        }
+
+
+        public static Vector2 Clamp01(Vector2 value)
+        {
+            value.x = Mathf.Clamp01(value.x);
+            value.y = Mathf.Clamp01(value.y);
+            return value;
+        }
+
+
+        public static Vector3 Clamp01(Vector3 value)
+        {
+            value.x = Mathf.Clamp01(value.x);
+            value.y = Mathf.Clamp01(value.y);
+            value.z = Mathf.Clamp01(value.z);
+            return value;
+        }
+
+
+        public static Vector2 Clamp(Vector2 value, float min, float max)
+        {
+            value.x = Mathf.Clamp(value.x, min, max);
+            value.y = Mathf.Clamp(value.y, min, max);
+            return value;
+        }
+
+
+        public static Vector2 Clamp(Vector2 value, Vector2 min, Vector2 max)
+        {
+            value.x = Mathf.Clamp(value.x, min.x, max.x);
+            value.y = Mathf.Clamp(value.y, min.y, max.y);
+            return value;
+        }
+
+
+        public static Vector3 Clamp(Vector3 value, float min, float max)
+        {
+            value.x = Mathf.Clamp(value.x, min, max);
+            value.y = Mathf.Clamp(value.y, min, max);
+            value.z = Mathf.Clamp(value.z, min, max);
+            return value;
+        }
+
+
+        public static Vector3 Clamp(Vector3 value, Vector3 min, Vector3 max)
+        {
+            value.x = Mathf.Clamp(value.x, min.x, max.x);
+            value.y = Mathf.Clamp(value.y, min.y, max.y);
+            value.z = Mathf.Clamp(value.z, min.z, max.z);
+            return value;
+        }
+
+
         /// <summary>
         /// 计算 2 的指数
         /// </summary>
